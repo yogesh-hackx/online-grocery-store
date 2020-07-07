@@ -1,0 +1,35 @@
+{
+    "name": "grocery-store-backend",
+    "version": "0.1",
+    "description": "Backend for online grocery-store.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js",
+        "lint": "eslint --fix src",
+        "test": "mocha --exit"
+    },
+    "keywords": [],
+    "author": "Yogesh Bhatt",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yogesh-hackx/grocery-store-backend"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "helmet": "^3.22.0",
+        "mongoose": "^5.9.22",
+        "morgan": "^1.10.0"
+    },
+    "devDependencies": {
+        "eslint": "^7.1.0",
+        "eslint-config-airbnb-base": "^14.1.0",
+        "eslint-plugin-import": "^2.20.2",
+        "mocha": "^7.2.0",
+        "nodemon": "^2.0.4",
+        "supertest": "^4.0.2"
+    }
+}
