@@ -18,6 +18,10 @@ const productSchema = new mongoose.Schema({
         type: [String],
         required: true,
     },
+    tags: {
+        type: [String],
+        required: true,
+    },
     productDetails: {
         nutrientValue: String,
         shelfLife: String,
