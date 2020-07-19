@@ -14,7 +14,10 @@ const productSchema = new mongoose.Schema({
     name: REQUIRED_STRING,
     MRP: REQUIRED_NUM,
     sellingPrice: REQUIRED_NUM,
-    quantityAvailable: REQUIRED_NUM,
+    quantityAvailable: {
+        type: [String],
+        required: true,
+    },
     productDetails: {
         nutrientValue: String,
         shelfLife: String,
