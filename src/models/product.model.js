@@ -26,7 +26,10 @@ const productSchema = new mongoose.Schema({
         nutrientValue: String,
         shelfLife: String,
         storageTips: String,
-        seller: REQUIRED_STRING,
+        seller: {
+            name: REQUIRED_STRING,
+            description: String,
+        },
         description: REQUIRED_STRING,
         images: {
             mainImg: String,
