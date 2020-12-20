@@ -19,6 +19,7 @@ router.post('/add', async (req, res) => {
         name,
         MRP,
         sellingPrice,
+        tags,
         quantityAvailable,
         productDetails,
     } = req.body;
@@ -29,6 +30,7 @@ router.post('/add', async (req, res) => {
             MRP,
             sellingPrice,
             quantityAvailable,
+            tags,
             productDetails,
         }).save();
         res.status(201).json(newProduct);
