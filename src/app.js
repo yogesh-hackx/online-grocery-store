@@ -7,14 +7,11 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const middlewares = require('./middlewares');
-const api = require('./api');
+const api = require('./routes/api');
 
 const app = express();
 
-mongoose.connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+mongoose.connect(process.env.DATABASE_URL);
 
 const db = mongoose.connection;
 /* eslint-disable no-console */
