@@ -21,7 +21,10 @@ db.once('open', () => console.log('Connected To DB!'));
 
 app.use(morgan('dev'));
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+    origin: ['http://127.0.0.1:3000', 'http://localhost:3000', 'https://sabjiwala.vercel.app'],
+    credentials: true,
+}));
 app.use(express.json());
 
 app.get('/', (req, res) => {

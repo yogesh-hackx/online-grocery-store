@@ -14,6 +14,36 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/home', async (req, res) => {
+    try {
+        const fruits = await Product.fuzzySearch('fruit')
+            .limit(Number(5));
+        const veggies = await Product.fuzzySearch('vegetable')
+            .limit(Number(5));
+        const oils = await Product.fuzzySearch('oil')
+            .limit(Number(5));
+        const dairy = await Product.fuzzySearch('dairy')
+            .limit(Number(5));
+
+        res.status(200).json([...fruits, ...veggies, ...oils, ...dairy]);
+    } catch (error) {
+        // console.log(error);  // For DEBUGGING
+        res.status(500).send('server error');
+    }
+});
+
+router.get('/details', async (req, res) => {
+    try {
+        const { id } = req.query;
+        const productDetails = await Product.findById(id);
+
+        res.status(200).json(productDetails);
+    } catch (error) {
+        // console.log(error);  // For DEBUGGING
+        res.status(500).send('server error');
+    }
+});
+
 // TODO: Add current offset and page in the response
 router.get('/product/search', async (req, res) => {
     const { query, limit, offset } = req.query;
