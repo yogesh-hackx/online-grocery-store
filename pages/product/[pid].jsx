@@ -25,7 +25,18 @@ const ProductDetails = () => {
   };
 
   const handleAddToCart = () => {
-    const newCart = [...cart, productDetails];
+    let alreadyInCart = false;
+
+    const newCart = cart.map((item) => {
+      if (item._id == pid) {
+        alreadyInCart = true;
+        return { ...item, count: item.count + 1 };
+      }
+      return item;
+    });
+
+    if (!alreadyInCart) newCart.push({count: 1, ...productDetails});
+
     setCart(newCart);
     localStorage.setItem("cart", JSON.stringify(newCart));
   };
