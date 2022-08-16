@@ -17,7 +17,7 @@ const CartList = () => {
 
   return (
     <div>
-      {cart.length &&
+      {cart &&
         cart.map((item) => (
           <div key={item._id} className="flex">
             <div className="w-20 h-20">
@@ -34,7 +34,7 @@ const CartList = () => {
           </div>
         ))}
 
-      {cart.length && (
+      {cart && (
         <div className="mt-4">
           <div className="font-bold flex gap-4 text-lg">
             Cart Total: <p className="text-grocery-green">Rs. {cartTotal}</p>
